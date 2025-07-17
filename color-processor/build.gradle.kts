@@ -15,13 +15,12 @@ val githubRepo: String by project
 
 val kspVersion: String by project
 
-
 plugins {
     kotlin("jvm")
     `maven-publish`
 }
 
-group = "org.hongryeo"
+group = "io.github.chunzhi23"
 version = "1.0.0"
 
 dependencies {
@@ -29,7 +28,10 @@ dependencies {
     implementation("com.squareup:kotlinpoet:2.2.0")
     implementation("com.squareup:kotlinpoet-ksp:2.2.0")
     implementation("com.google.devtools.ksp:symbol-processing-api:${kspVersion}")
-    implementation(project(":color-annotation"))
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 publishing {

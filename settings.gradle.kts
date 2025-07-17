@@ -14,4 +14,3 @@ pluginManagement {
 rootProject.name = "color-theme"
 
 include("color-processor")
-include("color-annotation")

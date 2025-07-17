@@ -1,4 +1,4 @@
-package org.hongryeo.annotations
+package io.github.chunzhi23.annotations
 
 @Retention(AnnotationRetention.SOURCE)
 @Target(AnnotationTarget.CLASS)
