@@ -38,7 +38,7 @@ publishing {
     publications {
         create<MavenPublication>("processor") {
             from(components["java"])
-            artifactId = "color-processor"
+            artifactId = "color-theme"
         }
     }
     repositories {
