@@ -9,30 +9,14 @@ plugins {
 group = "io.github.chunzhi23"
 version = "1.1.3"
 
-/**
- * If "release" profile is used the "-SNAPSHOT" suffix of the version is removed.
- */
 if (hasProperty("release")) {
-    val versionString = version as String
-    if (versionString.endsWith("-SNAPSHOT")) {
-        version = versionString.replace("-SNAPSHOT", "")
-    }
+    version = (version as String).removeSuffix("-SNAPSHOT")
 }
 
-/**
- * Handler of "versionTag" property.
- * Required to support Maven and NPM repositories that doesn't support "-SNAPSHOT" versions. To build and publish
- * artifacts with specific version run "./gradlew -PversionTag=my-tag" and the final version will be "0.6.13-my-tag".
- */
 if (hasProperty("versionTag")) {
-    val versionString = version as String
-    val versionTag = properties["versionTag"]
-    if (versionString.endsWith("-SNAPSHOT")) {
-        version = versionString.replace("-SNAPSHOT", "-$versionTag")
-        logger.lifecycle("Project will be built with version '$version'.")
-    } else {
-        error("Could not apply 'versionTag' together with non-snapshot version.")
-    }
+    val tag = properties["versionTag"] as String
+    version = (version as String).replace("-SNAPSHOT", "-$tag")
+    logger.lifecycle("Building with version: $version")
 }
 
 if (hasProperty("releaseVersion")) {
@@ -83,15 +67,7 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
 
-    metadata {
-        mavenPublication {
-            groupId = group as String
-            artifactId = "${project.name}-common"
-            pom {
-                name = "${project.name}-common"
-            }
-        }
-    }
+    metadata()
 
     sourceSets {
         val jvmMain by getting {
