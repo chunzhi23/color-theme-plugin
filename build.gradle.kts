@@ -1,6 +1,5 @@
 plugins {
-    kotlin("multiplatform")
-    id("com.google.devtools.ksp")
+    kotlin("multiplatform") apply false
 }
 
 allprojects {
@@ -8,8 +7,4 @@ allprojects {
         mavenLocal()
         mavenCentral()
     }
-}
-
-dependencies {
-    add("kspCommonMainMetadata", project(":color-theme"))
 }

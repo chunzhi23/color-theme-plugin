@@ -12,6 +12,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = "color-theme-plugin"
+rootProject.name = "ColorThemePlugin"
 
 include("color-theme")

@@ -70,6 +70,9 @@ kotlin {
     metadata()
 
     sourceSets {
+        val commonMain by getting
+        val commonTest by getting
+
         val jvmMain by getting {
             dependencies {
                 implementation(kotlin("stdlib"))
@@ -80,6 +83,7 @@ kotlin {
             kotlin.srcDir("src/main/kotlin")
             resources.srcDir("src/main/resources")
         }
+        val jvmTest by getting
     }
 }
 
