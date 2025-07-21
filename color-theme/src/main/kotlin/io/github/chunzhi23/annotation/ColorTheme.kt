@@ -1,4 +1,4 @@
-package io.github.chunzhi23.annotations
+package io.github.chunzhi23.annotation
 
 @Retention(AnnotationRetention.SOURCE)
 @Target(AnnotationTarget.CLASS)

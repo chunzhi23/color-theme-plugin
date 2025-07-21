@@ -6,3 +6,4 @@ build
 
 # Ignore else
 .idea
+.kotlin
